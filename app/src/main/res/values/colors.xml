@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimaryDark">#004D63</color>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="text">#252525</color>
+    <color name="radioButtons">#00A4CC</color>
+    <color name="mainColor">#00A4CC</color>
+    <color name="mainColorOrange">#F95700</color>
+    <color name="whiteOff">#FBFBF8</color>
+
+
+    <color name="background_gray">#D3D3D3</color>
+    <color name="link">#0043EE</color>
+    <color name="green">#4ECA53</color>
+    <color name="light_grey">#D3D3D3</color>
+</resources>

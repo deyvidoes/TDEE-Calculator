@@ -1,0 +1,61 @@
+<resources>
+    <string name="app_name">TDEE Calculator</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="splash">Splash Screen</string>
+    <string name="started_text">TDEE, total daily energy expenditure, is the amount of energy in calories you burn per day. TDEE is best calculated by factoring in your BMR, or basal metabolic rate, and your activity level. BMR is the amount of calories you would burn per day at rest. \n\nYour total daily energy expenditure includes all the energy you burn sleeping, working, exercising, and even eating. It is important to know your TDEE when trying to set up a proper bulking or cutting diet.\n\nYour TDEE is often referred to in fitness articles as your calorie maintenance level. This is the amount of calories that is required per day to keep you at your current weight. After you know your total daily energy expenditure you can either add calories per day to gain bulk, or lower calories to cut fat.</string>
+    <string name="what_is_tdee">What is TDEE?</string>
+    <string name="do_not_show_again">Do not show again.</string>
+    <string name="gender">Gender:</string>
+    <string name="female">Female</string>
+    <string name="male">Male</string>
+    <string name="tdee">TDEE</string>
+    <string name="calculator">Calculator</string>
+    <string name="age">Age:</string>
+    <string name="height">Height:</string>
+    <string name="activity">Activity:</string>
+    <string name="calculate">Calculate!</string>
+    <string name="weight">Weight:</string>
+    <string name="in_pounds">lbs</string>
+    <string name="in_kilos">kg</string>
+    <string name="here_are_your_results">Here are your Results:</string>
+    <string name="lose_weight">Lose a pound per week</string>
+    <string name="maintain_weight">Maintain Weight</string>
+    <string name="gain_weight">Gain a pound per week</string>
+    <string name="protein_carbs_fats">PROTEIN \nCARBS \nFATS \nTOTALS</string>
+    <string name="disclaimer">All splits are based on a normal 40/40/20 approach. Results might vary. This information is helpful when developing a meal &amp; training plan.</string>
+
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--String validation error messages-->
+    <string name="error_password_length">Password must be a minimum 6 characters long</string>
+    <string name="error_name">Please enter your name</string>
+    <string name="error_email">Please enter a valid email</string>
+    <string name="error_password_no_match">Passwords do not match</string>
+
+
+    <!--Firebase database collections -->
+    <string name="db_users">users</string>
+    <string name="db_users_weight_profiles">users_weight_profiles</string>
+
+    <!--Firebase database fields -->
+    <string name="db_user_name">user_name</string>
+    <string name="db_user_email">user_email</string>
+    <string name="register">Register</string>
+    <string name="register_welcome_message">Welcome to Weight Logger! Register your new account so you can start using the app!</string>
+    <string name="hint_full_name">Full Name</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_re_password">Re-type Password</string>
+    <string name="helper_swipe_to_login">Swipe right to login</string>
+    <string name="metric">Metric</string>
+    <string name="imperial">Imperial</string>
+    <string name="cm">cm</string>
+    <string name="recalculate">RECALCULATE</string>
+    <string name="update_message">Hello users, the reason behind the lack of updates for this app is because I am currently working on making it a bigger and better with many more uses instead of just the TDEE calculator. I did however received some feedback about the app missing an imperial mode so I decided to release this update which contains that as well with a little different design. Hope you all like it! Enjoy :) \n\n-Lopy Studios</string>
+</resources>
