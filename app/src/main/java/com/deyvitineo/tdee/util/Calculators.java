@@ -15,10 +15,6 @@ public class Calculators {
         //Process the incoming data based on whether we are using imperial or metric
         if (isImperial) {
             //getting the height in centimeters
-            String[] heightArr = height.split(" ");
-            double feet = Integer.parseInt(heightArr[0].replaceAll("[^0-9]", ""));
-            double inches = Integer.parseInt(heightArr[1].replaceAll("[^0-9]", ""));
-
             heightInCM = Calculators.heightInCm(height);
             weightInKg = (weight * Constants.POUNDS_TO_KGS);
         } else {
@@ -73,10 +69,6 @@ public class Calculators {
         double inches = Integer.parseInt(heightArr[1].replaceAll("[^0-9]", ""));
 
         return (int) Math.round((feet * Constants.FOOT_TO_CM) + (inches * Constants.INCH_TO_CM));
-    }
-
-    public static int weightInKg(int weight){
-        return (int) Math.round((weight * Constants.POUNDS_TO_KGS));
     }
 
     public static String calculateMacros(int calories){
