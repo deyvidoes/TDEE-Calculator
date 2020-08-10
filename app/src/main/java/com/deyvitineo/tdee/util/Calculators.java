@@ -1,6 +1,16 @@
 package com.deyvitineo.tdee.util;
 
+import com.deyvitineo.tdee.models.Calories;
+import com.deyvitineo.tdee.models.Macros;
+
 public class Calculators {
+
+    private static final double PROTEIN_PERCENTAGE = .40;
+    private static final double CARBOHYDRATES_PERCENTAGE = .40;
+    private static final double FAT_PERCENTAGE = .20;
+    private static final int PROTEIN_CALORIES_PER_GRAM = 4;
+    private static final int CARBOHYDRATES_CALORIES_PER_GRAM = 4;
+    private static final int FAT_CALORIES_PER_GRAM = 9;
 
     public static int calculateTDEE(double bmr, String activity, String gender) {
         double multiplier = calculateActivityLevelMultiplier(gender, activity);
@@ -31,39 +41,39 @@ public class Calculators {
     }
 
     //calculates multiplier for the activity selected
-    private static double calculateActivityLevelMultiplier(String gender, String activity) {
+    public static double calculateActivityLevelMultiplier(String gender, String activity) {
 
         double multiplier;
         if (gender.toLowerCase().equals("female")) {
 
-            if (activity.charAt(0) == 'S') {
-                multiplier = 1.1;
-            } else if (activity.charAt(0) == 'L') {
-                multiplier = 1.275;
-            } else if (activity.charAt(0) == 'M') {
-                multiplier = 1.35;
-            } else if (activity.charAt(0) == 'H') {
-                multiplier = 1.525;
+            if (activity.toUpperCase().charAt(0) == 'S') {
+                multiplier = Constants.FEMALE_SEDENTARY_MULTIPLIER;
+            } else if (activity.toUpperCase().charAt(0) == 'L') {
+                multiplier = Constants.FEMALE_LIGHT_MULTIPLIER;
+            } else if (activity.toUpperCase().charAt(0) == 'M') {
+                multiplier = Constants.FEMALE_MODERATE_MULTIPLIER;
+            } else if (activity.toUpperCase().charAt(0) == 'H') {
+                multiplier = Constants.FEMALE_HEAVY_MULTIPLIER;
             } else {
-                multiplier = 1.6;
+                multiplier = Constants.FEMALE_ATHLETE_MULTIPLIER;
             }
         } else {
-            if (activity.charAt(0) == 'S') {
-                multiplier = 1.2;
-            } else if (activity.charAt(0) == 'L') {
-                multiplier = 1.375;
-            } else if (activity.charAt(0) == 'M') {
-                multiplier = 1.55;
-            } else if (activity.charAt(0) == 'H') {
-                multiplier = 1.725;
+            if (activity.toUpperCase().charAt(0) == 'S') {
+                multiplier = Constants.MALE_SEDENTARY_MULTIPLIER;
+            } else if (activity.toUpperCase().charAt(0) == 'L') {
+                multiplier = Constants.MALE_LIGHT_MULTIPLIER;
+            } else if (activity.toUpperCase().charAt(0) == 'M') {
+                multiplier = Constants.MALE_MODERATE_MULTIPLIER;
+            } else if (activity.toUpperCase().charAt(0) == 'H') {
+                multiplier = Constants.MALE_HEAVY_MULTIPLIER;
             } else {
-                multiplier = 1.9;
+                multiplier = Constants.MALE_ATHLETE_MULTIPLIER;
             }
         }
         return multiplier;
     }
 
-    public static int heightInCm(String height){
+    public static int heightInCm(String height) {
         String[] heightArr = height.split(" ");
         double feet = Integer.parseInt(heightArr[0].replaceAll("[^0-9]", ""));
         double inches = Integer.parseInt(heightArr[1].replaceAll("[^0-9]", ""));
@@ -71,21 +81,46 @@ public class Calculators {
         return (int) Math.round((feet * Constants.FOOT_TO_CM) + (inches * Constants.INCH_TO_CM));
     }
 
-    public static String calculateMacros(int calories){
-        int proteins = (int) Math.round((calories * .40) / 4);
-        int carbs = (int) Math.round((calories * .40) / 4);
-        int fats = (int) Math.round((calories * .20) / 9);
-        int totals = proteins + carbs + fats;
+    public static Macros getMacros(int calories) {
+        Macros macros = new Macros();
+        macros.setProtein(getProteinMacros(calories));
+        macros.setCarbohydrates(getCarbohydratesMacros(calories));
+        macros.setFat(getFatMacros(calories));
 
-        return proteins + "g\n" + carbs + "g\n" + fats + "g\n" + totals + "g";
+        return macros;
     }
 
-    public static String calculateCalories(int calories){
-        int proteins = (int) Math.round((calories * .40));
-        int carbs = (int) Math.round((calories * .40));
-        int fats = (int) Math.round((calories * .20));
-        int totals = proteins + carbs + fats;
+    public static Calories getCalories(int calories) {
+        Calories caloriesModel = new Calories();
+        caloriesModel.setProtein((int) getProteinCalories(calories));
+        caloriesModel.setCarbohydrates((int) getCarbohydratesCalories(calories));
+        caloriesModel.setFat((int) getFatCalories(calories));
 
-        return proteins + " calories\n" + carbs + " calories\n" + fats + " calories\n" + totals + " calories";
+        return caloriesModel;
+        //return protein + " calories\n" + carbohydrate + " calories\n" + fat + " calories\n" + totals + " calories";
+    }
+
+    private static int getProteinMacros(int calories) {
+        return (int) Math.round(getProteinCalories(calories) / PROTEIN_CALORIES_PER_GRAM);
+    }
+
+    private static int getCarbohydratesMacros(int calories) {
+        return (int) Math.round(getCarbohydratesCalories(calories) / CARBOHYDRATES_CALORIES_PER_GRAM);
+    }
+
+    private static int getFatMacros(int calories) {
+        return (int) Math.round(getFatCalories(calories) / FAT_CALORIES_PER_GRAM);
+    }
+
+    private static double getProteinCalories(int calories) {
+        return Math.round((calories * PROTEIN_PERCENTAGE));
+    }
+
+    private static double getCarbohydratesCalories(int calories) {
+        return Math.round((calories * CARBOHYDRATES_PERCENTAGE));
+    }
+
+    private static double getFatCalories(int calories) {
+        return Math.round((calories * FAT_PERCENTAGE));
     }
 }
