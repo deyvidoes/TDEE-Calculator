@@ -18,7 +18,7 @@ public class SpinnerDataGenerators {
 
     public static ArrayList<String> getActivityLevels() {
         ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add("Sedentary (OfficeJob)");
+        arrayList.add("Sedentary (Office Job)");
         arrayList.add("Light (Exercise 1-2 days/week)");
         arrayList.add("Moderate (Exercise 3-5 days/week)");
         arrayList.add("Heavy (Exercise 6-7 days/week)");
