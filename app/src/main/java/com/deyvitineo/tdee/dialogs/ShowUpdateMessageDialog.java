@@ -57,7 +57,7 @@ public class ShowUpdateMessageDialog extends AppCompatDialogFragment {
             listener = (MessageShownListener) context;
         } catch (ClassCastException e) {
             throw new ClassCastException(context.toString()
-                    + " must implement AddCityDialogListener");
+                    + " must implement MessageShownListener");
         }
     }
 
