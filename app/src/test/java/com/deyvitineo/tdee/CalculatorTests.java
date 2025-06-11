@@ -40,15 +40,15 @@ public class CalculatorTests {
 
     @Test
     public void getMacros() {
-        assertThat((double) mMacros.getProtein(), is(closeTo((TEST_CALORIES * .40) / 4, 50)));
-        assertThat((double) mMacros.getCarbohydrates(), is(closeTo((TEST_CALORIES * .40) / 4, 50)));
-        assertThat((double) mMacros.getFat(), is(closeTo((TEST_CALORIES * .20) / 9, 50)));
+        assertEquals(200, mMacros.getProtein());
+        assertEquals(200, mMacros.getCarbohydrates());
+        assertEquals(44, mMacros.getFat());
     }
 
     @Test
     public void getCalories(){
-        assertThat((double) mCalories.getProtein(), is(closeTo(TEST_CALORIES * .40, 50)));
-        assertThat((double) mCalories.getCarbohydrates(), is(closeTo(TEST_CALORIES * .40, 50)));
-        assertThat((double) mCalories.getFat(), is(closeTo(TEST_CALORIES * .20, 50)));
+        assertEquals(800, mCalories.getProtein());
+        assertEquals(800, mCalories.getCarbohydrates());
+        assertEquals(400, mCalories.getFat());
     }
 }
